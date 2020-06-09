@@ -1,0 +1,15 @@
+.Input {
+  font-family: inherit;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 3px #eee;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  margin: 0.5em;
+  outline-style: none;
+  transition: transform ease 0.1s;
+}
+.Input:focus {
+  transform: scale(1.01);
+  box-shadow: 0 2px 3px #0000009d;
+}
