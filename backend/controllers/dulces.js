@@ -1,21 +1,23 @@
 const Dulce = require("../model/Dulce");
 
 exports.getDulces = (req, res, next) => {
-  res.json({
-    nombre: "dulce",
-    imageURL: "url secreta",
-    descripcion: "dfsdgfsdfgsdfg",
+  Dulce.find().then((dulces) => {
+    console.log(dulces);
+    res.status(200).json({
+      dulces,
+    });
   });
 };
 
 exports.postDulce = (req, res, next) => {
+  console.log(req.body);
   const dulce = new Dulce({
-    nombre,
-    descripcion,
-    imageURL: "https://source.unsplash.com/500x500/?candy,granel",
+    ...req.body,
+    imageURL: `https://source.unsplash.com/20${Math.floor(
+      Math.random() * 11
+    )}x20${Math.floor(Math.random() * 11)}/?candy,granel`,
   });
-
   dulce.save().then((result) => {
-    res.status(200);
+    res.status(200).json(result.data);
   });
 };

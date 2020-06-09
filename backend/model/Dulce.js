@@ -3,12 +3,20 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const dulceSchema = new Schema({
-  nombre: {
+  Nombre: {
     type: String,
     require: true,
   },
-  decripcion: {
+  Seccion: {
     type: String,
+    require: true,
+  },
+  Descripcion: {
+    type: String,
+    require: true,
+  },
+  Precio: {
+    type: Number,
     require: true,
   },
   imageURL: {
