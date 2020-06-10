@@ -1,6 +1,5 @@
 import React from "react";
-import candys from "../../../Assets/Candys.png";
-import Image from "../../UI/Imagen/Imagen";
+
 import classes from "./Logo.css";
 
 const logo = (props) => {

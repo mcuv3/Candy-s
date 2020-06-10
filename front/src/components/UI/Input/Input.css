@@ -4,10 +4,14 @@
   box-shadow: 0 2px 3px #eee;
   width: 100%;
   padding: 0.5rem 1rem;
-  border-radius: 15px;
+  border-radius: 5px;
   margin: 0.5em;
   outline-style: none;
   transition: transform ease 0.1s;
+}
+.textarea {
+  height: 120px;
+  resize: none;
 }
 .Input:focus {
   transform: scale(1.01);

@@ -9,7 +9,6 @@ const Nav = (props) => {
       <Logo />
       <div className="">
         <NavigationItem path="/dulces">Dulces</NavigationItem>
-        <NavigationItem path="/carro">Carro</NavigationItem>
         <NavigationItem path="/agregar-dulce">Agregar Dulce</NavigationItem>
       </div>
     </div>

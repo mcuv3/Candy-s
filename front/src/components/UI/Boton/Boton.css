@@ -1,13 +1,16 @@
 .Boton {
   font-family: inherit;
-  padding: 0.5rem 1rem;
-  border: 1px solid #002e20;
+  padding: 0.2rem 1rem;
+  width: 100%;
   cursor: pointer;
-  color: white;
-  background-color: #f97979;
-  border-radius: 15px;
+  color: #f97979;
+  background-color: white;
+  border: 1px solid #f97979;
+  border-radius: 5px;
   outline-style: none;
 }
 .Boton:hover {
+  color: white;
   background-color: #e96969;
+  border: 1px solid #000000;
 }

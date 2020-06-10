@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Dulce.css";
 import Imagen from "../UI/Imagen/Imagen";
 import Boton from "../UI/Boton/Boton";
 
 const Dulce = (props) => {
+  const [estadoDulce, setDulce] = useState("Disponible");
   return (
     <div className={classes.Dulce}>
       <div className={classes.Image}>
@@ -21,8 +22,12 @@ const Dulce = (props) => {
           <strong>${props.dulce.Precio}(MXN) </strong> el KG
         </h4>
       </div>
-      <div className={classes.Boton}>
-        <Boton>Agregar</Boton>
+      <div
+        className={classes.Boton}
+        onMouseEnter={() => setDulce("No Disponible")}
+        onMouseLeave={() => setDulce("Disponible")}
+      >
+        <Boton>{estadoDulce}</Boton>
       </div>
     </div>
   );

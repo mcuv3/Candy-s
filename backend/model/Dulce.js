@@ -7,6 +7,7 @@ const dulceSchema = new Schema({
     type: String,
     require: true,
   },
+  disponibilidad: Boolean,
   Seccion: {
     type: String,
     require: true,
