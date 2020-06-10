@@ -3,7 +3,6 @@ const { validationResult } = require("express-validator");
 
 exports.getDulces = (req, res, next) => {
   Dulce.find().then((dulces) => {
-    console.log(dulces);
     res.status(200).json({
       dulces,
     });
@@ -24,8 +23,24 @@ exports.postDulce = (req, res, next) => {
   const dulce = new Dulce({
     ...req.body,
     imageURL,
+    disponible: true,
   });
   dulce.save().then((result) => {
     res.status(200).json(result.data);
   });
+};
+
+exports.postCambiarDisponibilidad = (req, res, next) => {
+  const _id = req.body._id;
+  Dulce.findById(_id)
+    .then((dulce) => {
+      dulce.disponible = !dulce.disponible;
+      return dulce.save();
+    })
+    .then((result) => {
+      res.status(200).send(true);
+    })
+    .catch((err) => {
+      res.status(300).send({ err });
+    });
 };

@@ -12,7 +12,7 @@
 }
 
 /* Progress Bar */
-$progress-bar-color: #5c5c5c !default;
+$progress-bar-color: #f97979 !default;
 
 // Progress Bar
 .progress {
@@ -23,7 +23,7 @@ $progress-bar-color: #5c5c5c !default;
   background-color: lighten($progress-bar-color, 40%);
   border-radius: 2px;
   background-clip: padding-box;
-  margin: 0.5rem 0 1rem 0;
+  margin: -1em 0 2em;
   overflow: hidden;
   .determinate {
     position: absolute;

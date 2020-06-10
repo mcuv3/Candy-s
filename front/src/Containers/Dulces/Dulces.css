@@ -5,3 +5,17 @@
   gap: 1em;
   margin: auto;
 }
+
+@media (max-width: 800px) {
+  .Dulces {
+    width: 550px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .Dulces {
+    width: 350px;
+    grid-template-columns: 1fr;
+  }
+}

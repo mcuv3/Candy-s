@@ -2,13 +2,26 @@ import React, { useState } from "react";
 import classes from "./Dulce.css";
 import Imagen from "../UI/Imagen/Imagen";
 import Boton from "../UI/Boton/Boton";
+import axios from "../../axios-dulce";
 
 const Dulce = (props) => {
-  const [estadoDulce, setDulce] = useState("Disponible");
+  const [estadoDulce, setDulce] = useState(props.dulce.disponible);
+
+  const cambiarStatusDulce = () => {
+    axios
+      .post("cambiar-disponiblidad", { _id: props.dulce._id })
+      .then((res) => {
+        setDulce(!estadoDulce);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className={classes.Dulce}>
       <div className={classes.Image}>
-        <Imagen url={props.dulce.imageURL} alt="Imagen Chida" />
+        <Imagen url={props.dulce.imageURL} alt="Imagen de Un Dulce" />
       </div>
 
       <div className={classes.Info}>
@@ -22,13 +35,13 @@ const Dulce = (props) => {
           <strong>${props.dulce.Precio}(MXN) </strong> el KG
         </h4>
       </div>
-      <div
-        className={classes.Boton}
-        onMouseEnter={() => setDulce("No Disponible")}
-        onMouseLeave={() => setDulce("Disponible")}
-      >
-        <Boton>{estadoDulce}</Boton>
-      </div>
+      {props.admin && (
+        <div className={classes.Boton}>
+          <Boton click={cambiarStatusDulce}>
+            {estadoDulce ? "Disponible" : "No Disponible"}
+          </Boton>
+        </div>
+      )}
     </div>
   );
 };

@@ -16,8 +16,12 @@ Router.post(
     body("Seccion", "Debes elegir una opción").isLength({ min: 1 }),
     body("Precio", "Debe de ser un número").isFloat(),
   ],
-
   dulcesControllers.postDulce
+);
+
+Router.post(
+  "/cambiar-disponiblidad",
+  dulcesControllers.postCambiarDisponibilidad
 );
 
 module.exports = Router;
