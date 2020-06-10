@@ -11,6 +11,8 @@ app.use(bodyParser.json());
 
 app.use(dulcesRutas);
 
+const PORT = process.env.PORT || 5000;
+
 mongoose
   .connect(
     "mongodb+srv://mcuve:dislexiaautismo1313@nodejs-wg1ao.mongodb.net/dulceria?retryWrites=true&w=majority",
@@ -20,6 +22,6 @@ mongoose
     }
   )
   .then((res) => {
-    app.listen(5000);
+    app.listen(PORT);
   })
   .catch((e) => console.log(e));

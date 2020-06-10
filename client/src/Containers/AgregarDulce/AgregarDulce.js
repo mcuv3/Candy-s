@@ -108,7 +108,7 @@ const AgregarDulce = (props) => {
 
   return (
     <div className={classes.Formulario}>
-      <form onSubmit={agregarDulce} noValidate>
+      <form onSubmit={agregarDulce}>
         <h1>Agrega Un Dulce</h1>
         {formValues.map((formControl) => {
           return (
