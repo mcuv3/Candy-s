@@ -1,4 +1,5 @@
-.Boton {
+.Disponible,
+.NoDisponible:hover {
   font-family: inherit;
   padding: 0.2rem 1rem;
   width: 100%;
@@ -9,8 +10,15 @@
   border-radius: 5px;
   outline-style: none;
 }
-.Boton:hover {
+.Disponible:hover,
+.NoDisponible {
+  font-family: inherit;
+  padding: 0.2rem 1rem;
+  width: 100%;
+  cursor: pointer;
   color: white;
   background-color: #e96969;
   border: 1px solid #000000;
+  border-radius: 5px;
+  outline-style: none;
 }

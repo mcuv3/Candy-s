@@ -7,15 +7,25 @@ import LoadingBar from "../../components/UI/LoadingBar/LoadingBar";
 const Dulces = (props) => {
   const [dulces, setDulces] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-    axios.get("dulces").then((res) => {
-      setLoading(false);
-      console.log(res);
-      setDulces(res.data.dulces);
-    });
+    axios
+      .get("dulces")
+      .then((res) => {
+        setLoading(false);
+        setDulces(res.data.dulces);
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(err.response.data.err);
+      });
   }, []);
+
+  if (error) {
+    return <h1 style={{ textAlign: "center" }}>{error}</h1>;
+  }
 
   return (
     <>

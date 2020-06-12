@@ -9,7 +9,6 @@ const AgregarDulce = (props) => {
   const [form, setForm] = useState({
     Nombre: {
       elemento: "input",
-
       config: {
         placeholder: "Nombre del Dulce",
         required: true,
@@ -20,7 +19,6 @@ const AgregarDulce = (props) => {
     },
     Descripcion: {
       elemento: "textarea",
-
       config: {
         placeholder: "Descripción ....",
         required: true,
@@ -47,7 +45,7 @@ const AgregarDulce = (props) => {
       config: {
         placeholder: "Precio por kg (MXN)",
         required: true,
-        type: "number",
+        type: "text",
       },
       value: "",
       error: null,
@@ -71,7 +69,6 @@ const AgregarDulce = (props) => {
     axios
       .post("/agregar-dulce", dulce)
       .then((res) => {
-        console.log(res.data);
         props.history.push("/dulces");
       })
       .catch((err) => {
@@ -108,7 +105,7 @@ const AgregarDulce = (props) => {
 
   return (
     <div className={classes.Formulario}>
-      <form onSubmit={agregarDulce}>
+      <form onSubmit={agregarDulce} noValidate>
         <h1>Agrega Un Dulce</h1>
         {formValues.map((formControl) => {
           return (

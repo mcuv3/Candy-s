@@ -6,6 +6,7 @@ import axios from "../../axios-dulce";
 
 const Dulce = (props) => {
   const [estadoDulce, setDulce] = useState(props.dulce.disponible);
+  const [error, setError] = useState(false);
 
   const cambiarStatusDulce = () => {
     axios
@@ -14,7 +15,7 @@ const Dulce = (props) => {
         setDulce(!estadoDulce);
       })
       .catch((err) => {
-        console.log(err);
+        setError(err.response.data.err);
       });
   };
 
@@ -37,8 +38,8 @@ const Dulce = (props) => {
       </div>
       {props.admin && (
         <div className={classes.Boton}>
-          <Boton click={cambiarStatusDulce}>
-            {estadoDulce ? "Disponible" : "No Disponible"}
+          <Boton click={cambiarStatusDulce} estilo={estadoDulce}>
+            {estadoDulce ? (error ? error : "Disponible") : "No Disponible"}
           </Boton>
         </div>
       )}
