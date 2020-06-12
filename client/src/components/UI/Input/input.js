@@ -31,10 +31,16 @@ const input = (props) => {
           onChange={props.change}
           className={classes.Input}
         >
-          {props.config.options.map((option) => {
+          {props.config.options.map((option, index) => {
+            if (index === 0)
+              return (
+                <option value={option.value} key={option.value} hidden selected>
+                  {option.text}
+                </option>
+              );
             return (
               <option value={option.value} key={option.value}>
-                {option.value}
+                {option.text}
               </option>
             );
           })}

@@ -31,13 +31,14 @@ const AgregarDulce = (props) => {
       elemento: "select",
       config: {
         options: [
-          { value: "Gomitas" },
-          { value: "Chocolates" },
-          { value: "Confitados" },
-          { value: "Paletas" },
+          { value: "", text: "Seccion" },
+          { value: "gum", text: "Gomitas" },
+          { value: "chocolate", text: "Chocolates" },
+          { value: "candied", text: "Confitados" },
+          { value: "pops", text: "Paletas" },
         ],
       },
-      value: "Gomitas",
+      value: "",
       error: null,
     },
     Precio: {

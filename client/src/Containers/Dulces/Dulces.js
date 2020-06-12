@@ -35,7 +35,6 @@ const Dulces = (props) => {
           if (props.admin) return <Dulce key={dulce._id} dulce={dulce} admin />;
           else if (dulce.disponible)
             return <Dulce key={dulce._id} dulce={dulce} />;
-          else return;
         })}
       </div>
     </>

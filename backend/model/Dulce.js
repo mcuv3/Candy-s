@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-const randomNumber = Math.floor(Math.random() * 11);
 
 const dulceSchema = new Schema({
   Nombre: {
@@ -26,7 +25,7 @@ const dulceSchema = new Schema({
   },
   imageURL: {
     type: String,
-    default: `https://source.unsplash.com/20${randomNumber}x20${randomNumber}/?candy,granel`,
+    require: true,
   },
 });
 
