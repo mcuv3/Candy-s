@@ -1,18 +1,16 @@
+require("dotenv").config();
 const dulceControllers = require("../controllers/dulces");
 const mongoose = require("mongoose");
 const Dulce = require("../model/Dulce");
 const expect = require("chai").expect;
-
+const MONGO_URI = process.env.MONGO_URI;
 describe("Dulces - Tests", () => {
   before((done) => {
     mongoose
-      .connect(
-        "mongodb+srv://mcuve:dislexiaautismo1313@nodejs-wg1ao.mongodb.net/testDulceria?retryWrites=true&w=majority",
-        {
-          useUnifiedTopology: true,
-          useNewUrlParser: true,
-        }
-      )
+      .connect(MONGO_URI, {
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+      })
       .then((res) => {
         const dulce = new Dulce({
           _id: "5c0f66b979af55031b34728a",
